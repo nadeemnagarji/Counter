@@ -54,7 +54,8 @@ function createTimer(hour,min,sec){
            sc.innerText =`${secs}`
             countDown--
             }else{
-                    timeCard.innerHTML ="<h1>Timer is Up!</h1>"
+                    timeCard.innerHTML =`<h1 style="color:black;">Timer is Up!</h1>`
+                   
                    timeCard.style.backgroundColor="#F0F757"
             }
     }
