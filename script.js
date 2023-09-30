@@ -55,9 +55,7 @@ function createTimer(hour,min,sec){
             countDown--
             }else{
                     timeCard.innerHTML ="<h1>Timer is Up!</h1>"
-                    parentNode = timer.parentnode
-                    console.log(parentNode)
-                   parentNode.style.backgroundColor="#F0F757"
+                   timeCard.style.backgroundColor="#F0F757"
             }
     }
 
