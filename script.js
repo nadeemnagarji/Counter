@@ -33,7 +33,7 @@ function createTimer(hour,min,sec){
     timeCard.innerHTML =`  
     <p>Time Left:</p>
     <div id="timer"> <div><div id="hour-${currId}">${hour}</div><span id="dots">:</span> <div id="min-${currId}">${min}<span id="dots"></div>:</span> <div id="sec-${currId}">${sec}</div></div>
-    <button id="del-btn">Delete</button></div>
+    <button id="del-btn" onclick=Delete(this)>Delete</button></div>
     
 `  
     
@@ -42,12 +42,16 @@ function createTimer(hour,min,sec){
 
    let totalTime = (hour*3600)+(min*60) +(sec)
 
-
+    console.log(totalTime);
     function timeChange (countDown){
         if(countDown>=0){
             let hours = Math.floor(countDown/3600)
-            let mins = Math.floor(countDown/60)
-            let secs = countDown - ((hours*3600) +(mins * 60 ) )
+            const remainingSeconds = countDown % 3600
+            console.log(hour);
+            let mins = Math.floor(remainingSeconds/60)
+            console.log(mins);
+            let secs = remainingSeconds % 60 
+            console.log(secs);
             document.getElementById(`hour-${currId}`).innerText = hours
             document.getElementById(`min-${currId}`).innerText = mins
            let sc =  document.getElementById(`sec-${currId}`)
@@ -73,7 +77,11 @@ function createTimer(hour,min,sec){
    }
    
 
-   
+   function Delete(button){
+        console.log(button.parentNode.parentNode);
+        let card = button.parentNode.parentNode
+        card.remove()
+   }
 
 
 
